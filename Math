@@ -1,0 +1,81 @@
+Math / Comparison
+
+If (a == b) // searches strings and text for same value
+If (a === b) // must be absolute match of value and variable type
+If (a > b)
+If (a < b)
+If (a >= b)
+If (a <= b)
+If (a != b) //a not equal to b
+If (a !== b) //  not an absolute match
+
+let divis = a / b // division
+let rem = a % b // remainer
+let even = a % 2 === 0 // for even numbers
+let odd = a % 2 !==0 // for odd numbers
+
+// convert to number
+parseInt() 
+Number() 
++variableName
+parseFloat() // for decimals
+
+//if A is true AND B is true, then do C
+if(A && B){ 
+    C;	
+}
+// if A is true OR B is true, then do C
+if(A || B){
+    C;
+}
+// if A is FALSE (i.e.: NOT TRUE), then do B
+if(!A){
+    B;
+}
+//
+
+//squared
+A^2 = a * a
+
+//
+area = length * width 
+perimeter = (2 * length) + (2 * width)
+//
+
+//Applying math to a variable
+ let summer = 0;
+ console.log(summer + 7)
+ console.log(summer += 7) //moving forward summer is now = 7
+//
+
+//Math in a function
+function sum(a, b) {
+   return a + b
+ }
+ console.log(sum(3, 5))
+//
+
+//
+function evenOrOdd(number) {
+ if (number % 2 === 0) {
+   console.log("even")
+   return "even"
+  } else {
+    console.log("odd") 
+   return "odd"
+  }}
+//
+
+
+//Calculating a factorial
+function factorial(n) {
+   let f = n
+       // Note that this loop decreases the value of n during each iteration
+       while(n-- > 1) {
+           f = f * n;
+       }
+       return f;
+   }
+//
+
+// Further study - CommonMathFunctions or AllAboutStrings

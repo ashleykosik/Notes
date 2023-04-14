@@ -1,0 +1,98 @@
+//CommonMathFunctions
+
+//
+// to make empty string = 0
+if (age === "") {
+   console.log(0)
+   return 0
+}
+// 
+// to add: percents
+
+
+
+//
+// compare single inputs
+//
+// you can be very specific in your conditions
+function main(N) {
+    // confirms input is a number
+   const N = parseInt(N);
+
+   // if number is odd 
+if(N % 2 != 0) {
+        console.log("Weird");
+
+    // if number is even
+   } else if(N % 2 == 0) {
+
+        // in the range of 2-5
+        if(N >= 2 && N <= 5) {
+           console.log("Not Weird");
+        
+        // in the range of 6-20
+        } else if(N >= 6 && N <= 20) {
+           console.log("Weird");
+
+        // greater than 20
+        } else if(N > 20){
+         console.log("Not Weird");            
+        }
+    }
+   }
+//
+//
+function fizzBuzz(i) {
+ if ((i % 3 === 0) && ! (i % 5 === 0)) {
+   console.log("Fizz")
+} else if ((i % 5 === 0) && ! (i % 3 === 0)) {
+  console.log("Buzz")
+} else if (i % 3 === 0 || i % 5 === 0) {
+console.log ("FizzBuzz")
+} else {
+console.log(i)
+ }
+}
+
+//
+// OR use a top down logic from high to low conditions if applicable
+//
+
+function fizzBuzz(i) {
+ if (i % 15 === 0) {
+   console.log("FizzBuzz")
+} else if (i % 5 === 0) {
+  console.log("Buzz")
+} else if (i % 3 === 0) {
+console.log ("Fizz")
+} else {
+console.log(i)
+ }
+}
+
+//
+// If 25 < score <= 30 then grade = A
+// If 20 < score <= 25 then grade = B
+// If 15 < score <= 20 then grade = C
+// If 10 < score <= 25 then grade = D
+// If 5 < score <= 10 then grade = E
+// If 0 < score <= 30 then grade = F
+//
+function getGrade(score) {
+   let grade = score
+   // Write your code here
+   if (grade > 25) {
+       return "A"
+   } else if (grade > 20) {
+       return "B"
+   } else if (grade > 15) {
+       return "C"
+   } else if (grade > 10) {
+       return "D"
+   } else if (grade > 5) {
+       return "E"
+   } else {
+      return "F"
+   } 
+}
+//
