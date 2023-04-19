@@ -22,7 +22,7 @@ console.log(l.substring(0, 4)) // returns first 4 characters
 //
 // Convert into a string 
 //
-// method = String(number)
+// method = String(variable) && .toString()
 let boo = false
 console.log(String(`That is ` + boo)) //  result = `that is false`
 
@@ -58,19 +58,7 @@ function getFirstCharacter(name) {
 function getDescription(text) {
     return text.substring(0, 10) + "..."
 }
+
 /*
-For further study go to ArraysWithStrings
-
-
-.replace(x, x) - only affects the first instance
-.replaceAll()
-.split() -no argument splits every character, argument separates and removes itself 
-.join() - joins an array into a string
-*/
-
-/*String methods
-.includes()
-.startsWith()
-.endsWith()
--returns true or false
+For further study go to String Methods 
 */

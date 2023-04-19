@@ -78,4 +78,10 @@ function factorial(n) {
    }
 //
 
+//Math function
+Math.random() //provides a random number from [0,1)
+Math.floor( (Math.random() * 10) + 1); 
+//multiplying Math.random() by 10 will provide a random number from [0, 10).
+
+
 // Further study - CommonMathFunctions or AllAboutStrings
