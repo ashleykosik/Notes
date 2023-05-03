@@ -1,0 +1,235 @@
+/* Language for querying / creating / updating relational databases
+
+Terminology
+Table - base unit of information
+Record - row
+Field - individual attribute aka column
+Database - collection of tables
+
+*relational databases - good for asking questions about data that is related to each other
+-like orders and customers
+*postgresql - combatible with .json & xml
+
+*non-relational databases aka NOSQL
+
+CRUD
+create = INSERT INTO
+read = SELECT
+update = UPDATE
+delete = DELETE
+
+Datatypes
+String 'value' must use single quotes
+TEXT = unlimited characters
+VARCHAR(XX) = # of characters allowed in the string
+DATETIME = 'year-month-day'
+
+INTEGER = whole numbers
+DECIMAL = unlimited decimal values
+FLOAT = up to 15 decimal places
+BOOLEAN = true or false
+
+NULL = unknown
+-all fields can be NULL unless declared NOT NULL
+
+SERIAL is an automatically incrementing integer.
+PRIMARY KEY sets the data type to be a unique value
+- when inserting data you will skip the value set as SERIAL
+
+*/
+--View All Tables
+SELECT *
+FROM information_schema.tables 
+
+--Creating Tables
+CREATE TABLE name (
+    id SERIAL PRIMARY KEY,
+    --set up column names, datatype, & any constraints / not null
+    name VARCHAR(100) NOT NULL,
+    quanity INTEGER
+    price FLOAT
+    seedless BOOLEAN
+);
+
+--Create Data with tables
+INSERT INTO name (name, quantity, price, seedless)
+Values ('Watermelon', 14, 3.99, true), --comma needed when adding multiple rows
+    ('Grapes', 5, 2.99, false); -- semi colons needed at the end of every command/query
+
+--A SELECT statement returns a result, answers a question.
+SELECT columnname FROM database
+* -- is used for all columns
+
+WHERE -- a certain condition is met. 
+SELECT * FROM melons WHERE price > 2; 
+SELECT * FROM melons WHERE color = 'green' AND price <> 5; -- gets green melons that are NOT $5
+SELECT * FROM melons WHERE color IN ('pink', 'blue'); -- gets all pink and blue melons
+
+--Operators
+Equal: =
+Not Equal: <> (or !=)
+Comparison: >, <, >=, <=
+Match any string: LIKE 'StartsWith%' or '%INCLUDES%'
+Boolean: AND, OR, NOT, (, )
+Between (inclusive): BETWEEN x AND y
+In List: IN (1, 2, 3, 4)
+
+GROUP BY (field)-- Search by attribute, This will group your results together.
+SELECT color FROM melons GROUP BY color;
+
+Aggregates -- placed after SELECT, or ORDER BY
+COUNT(*) --“count all the items in this group”
+AVG(price) -- “find the average of this column”
+SUM(price) -- “add all the numbers in this column”
+MIN(price) -- “find the smallest value in this column”
+MAX(price) -- “find the largest value in this column”
+SELECT COUNT(*) FROM melons;
+SELECT AVG(price) FROM melons;
+--
+--populates a list of total melons by color
+SELECT color, COUNT(*)
+FROM melons
+GROUP BY color;
+
+
+ORDER BY (field)
+--list of melon totals organzied by color
+SELECT color, COUNT(*)
+FROM melons
+GROUP BY color
+ORDER BY COUNT(*); -- can add ASC or DESC
+
+OFFSET #--can skip rows from the top
+SELECT color, COUNT(*) FROM melons
+GROUP BY color
+ORDER BY COUNT(*)
+OFFSET 2;
+
+
+LIMIT #-- only show this many rows from the top
+SELECT color, COUNT(*) FROM melons
+GROUP BY color
+ORDER BY COUNT(*)
+LIMIT 1;
+
+UPDATE (field)--
+UPDATE melons
+SET price = 3
+WHERE id = 2;
+
+DELETE --once deleted can not be undone
+DELETE FROM melons
+WHERE color = 'green';
+
+/*
+Data modeling is the process of creating a visual representation of where data is stored and how it is connected to other data 
+keep it dry - no repeatingly storing info in multiple places
+Normalizing is the art of simplifiying and planning the database
+*/
+
+--Foreign Key - links tables together
+id INTEGER NOT NULL REFERENCES table(often id or related field) -- can stack to create the many to many relationship
+--
+
+EXAMPLE: ONE TO ONE--like objects extend to more specific objects
+/* Users Table - id, email, name -> Author Table, unique_id, connect it to user_id and add info 
+- all authors are users but not all users are authors - need some similar info
+*/
+
+EXAMPLE: ONE TO MANY -- like one person creating many posts
+--create list of books with id and title
+CREATE TABLE books (
+    book_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+);
+--create list of printings since books have different amounts of printing at different times
+CREATE TABLE printings (
+    printing_id SERIAL PRIMARY KEY,
+    book_id INTEGER NOT NULL REFERENCES books(book_id)
+    print_date TIMESTAMP
+);
+
+
+MANY TO MANY -- requires adding a third table
+--When you need to store data on many things that can be apart of something else that can also have many itterations. 
+-middle tables include unique info plus relationships
+-association tables only store the relationship between two other tables, not any unique info
+
+EXAMPLE: People in facebook groups - There are many different groups with many people
+--can't store group info in user table because different users will be in different amounts of unique groups
+--we need to store information about all the groups created in its own table, so we can't store the members there either
+SOLUTION: third table containing group users
+rows contain relationships only between group_ids & user_ids
+
+EXAMPLE:TUESDAY LAB - FOODIE APP
+--what info do we need to store?
+users - have info
+recipies - have info
+ingredients - have info
+occasions - have info
+shopping lists - created for users, with ingredients for recipies or occasions
+
+--listing each field to find relationships
+many to many - users to occasion via occasion demographics
+
+Middle Tables:
+users & ingredients = ingredients on hand
+query - can I make recipie? connects users to recipie through ingredients on hand
+occasion is coming up - look at what users celebrate which occasion and pull from recipie labeled as marked for the occasion = label table containing only recipie_id and match occasion
+
+--
+JOIN TABLES
+
+-- for repeating column names, (aka inner join)
+SELECT 
+    name, 
+    table1.dept_code, 
+    table2.dept_code, 
+    dept
+FROM 
+    table1
+JOIN 
+    table2
+--must choose the relating fields even if you don't elect to see the data in the SELECT area
+    ON table1.dept_code = table2.dept_code;
+
+
+Aliases
+--use the keyword AS
+SELECT fname AS first_name, city...
+--OR simply put a space between the real name and the alias
+SELECT fname first_name, city...
+
+Examples: ??
+SELECT a.author AS author_last_name, b.title
+FROM authors AS a
+  JOIN books AS b
+    ON a.author_id = b.author_id;
+--OR
+SELECT a.author author_last_name, b.title
+FROM authors a
+  JOIN books b
+    ON a.author_id = b.author_id;
+
+DROP tables = delete
+
+--Dependancys
+DOTENV
+
+require('dotenv').config()
+access envirnment variables? server port?
+${process.env.server_port}
+
+Sequelize
+--an ORM object relation manager
+
+const Sequelize = require('sequelize')
+
+const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }
+})

@@ -64,11 +64,10 @@ Or the last loaded style if 2 of the exact same are written
     *section p = applies to all paragraphs in section
     *section p a = applies to all paragraphs and links in section
 
-/*****/
-The Box Model
+/*****/ The Box Model /*****/
 block level elements always start a new line: paragraphs, headers, articles, sections
 Inline elements will not change in css when individually applying height and width 
-/*****/
+
 
 Display: block, inline, inline-block, flex, None = hidden
 display:block;
@@ -110,6 +109,10 @@ Padding - can add or subtract space within the element
 Border - added between padding and margin
 Border-width: can also use thin, medium, thick
 Border-style: none, solid, hidden, dotted, dashed, double, groove, ridge, inset, outset
+
+
+
+
 Shorthand: Can be in any order
 border: 2px solid red
 OR border: solid red 2px
@@ -133,8 +136,7 @@ Margin-left: -4px;
 /*****/
 
 
-/*****/
-Colors:
+/*****/ Colors: /*****/
 Includes keywords, #color value and rgb(XXX,XXX,XXX)
 #color value = hex value/hexadecimal 
 #000000 = black
@@ -167,8 +169,18 @@ Saturation = 100% full saturation, 0% is a shade of grey
 Lightness=100% is white, 0% is black, 50% is normal
 
 
+/*****/ Text /*****/
 Fonts: List in order of preferred fonts to generic
 Font-family: Helvetica, Arial, sans-serif;
+
+box-shadow: XXpx XXpx color;
+The first value is the horizontal offset (bottom).
+the second value is the vertical offset (side). 
+The shadow color will be inherited from the text color or can be assigned.
+
+/*****/ Shapes /*****/
+circles -  border-radius: 50%;
+
 
 
 

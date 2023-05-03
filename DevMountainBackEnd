@@ -1,0 +1,142 @@
+// Friday - Web Theory
+
+How does the internet work?
+The front end sends a request
+GET
+PUT  - edit database
+POST - add to database
+DELETE
+
+server recieves one of the following requests
+the server produces HTML in the form of an HTTP response
+//res.status.send()
+browser renders html
+each request is independant from each other
+Idempotency - the server remains unchanged from GET, PUT, & DELETE (not POST)
+
+Types of Responses:
+HTML: most common, contains “markup” to be rendered
+JS: Javascript code to be executed in the browsser
+CSS: styling modifications to apply on top of HTML structure
+PNG or JPEG: images! separate response for each.
+JSON: key-value data, usually from a database, to be used within Javascript code
+
+URL stands for Uniform Resource Locator
+Protocol 'http://'
+Hostname 'google.com'
+Resource '/search'
+Query arguments '?input=cats&filter=False'
+
+HTTP stands for Hyper Text Transfer Protocol
+Request/response pattern
+Established way for browsers and computers to communicate
+Originally invented to allow groups of scientific researchers to share information
+
+//
+// Monday - Back End Basics (1)
+Client - a personal computer that talks to a server through the internet.
+The client is also known as the front-end part of our application.
+We will be using React for our front-end.
+
+Server - will recieve & send information to and from clients.
+The server is also known as the back-end of the application.
+We will be building our servers with Node.
+Node is what allows JavaScript to be able to run outside of the browser.
+
+Command to make node start running a file:
+use the command ‘node’ followed by the name of the JS file you want to run.
+ex: node index.js
+* Node can only run one file at a time *
+
+Nodemon - can restart node after you change your file // its always watching you
+To install Nodemon, run the following command:
+"npm install -g nodemon"
+To run Nodemon with a file, just type:
+"nodemon index.js" or "server/index.js" if inside a file
+
+NPM stands for Node Package Manager.
+NPM is what gives us access to many great packages and libraries to use, such as Nodemon, axios, and more.
+
+Add Node_Modules & package.json file:
+Command: npm init -y
+
+Express is a minimal, flexible Node.js framework that is great for building servers.
+To install Express, run the following in your terminal:
+npm install express
+
+**Server Set Up**
+const express = require('express')
+
+const app = express()
+
+app.use(express.json())  // When we want to be able to accept JSON.
+
+app.listen(4040, () => console.log('Server running on 4040'))
+
+
+**EndPoints**
+(app is set up above)
+app.get('/api/users', handlerFunction)
+app.put('api/users', handerFunction)
+app.post('api/users/:id, handerFunction)
+app.delete('api/users/:id, handerFunction)
+
+
+app.get("/weather/:temperature", (req, res) => {
+    let phrase = req.params.temperature or in an HTML string `${req.params.temperature}`
+    
+    OR const { temperature } = req.params;
+
+  const phrase = `<h3>It was ${temperature} today</h3>`;
+  res.status(200).send(phrase) })
+
+Handler Functions
+determine what functionality should happen when a specific request is made to a given endpoint.
+Handler functions will receive request (req) and response (res) object parameters.
+
+REQ - like order 
+The Request Object is passed in by express as an argument to handler functions.
+It contains the params, query, and body objects that can be sent in a request:
+req.params
+req.query
+req.body
+
+app.get('/api/users', (req, res) => {
+  // functionality goes here
+})
+
+RES - like bag to deliver order
+The Response Object - is the information that the server will send back to the client making the request.
+Us status codes - the standardized short-hand syntax for relaying information about requests.
+Available status codes here: https://http.cat/
+
+app.get('/api/users', (req, res) => {
+  res.status(200).send(users)
+})
+
+
+
+
+Using Params
+To create an endpoint that accepts params, a placeholder needs to be created on the server’s endpoint. We denote that param with a colon. This works like a parameter in a function. When we “hit” the endpoint, we “send in” the value we want the param to have.
+// server code
+app.get('/api/users/:id')
+
+// front end code
+axios.get('/api/users/3')
+  .then(...)
+
+
+Using Queries
+Queries are signified by a ?. After the question mark we have a *key and a value,* separated by an equal sign, in this syntax: key=value.
+Requests (on the front end) never need an :id if a query is going to be used
+
+A quick look at how queries are created in a url:
+// https://www.mywebsite.com"?user=john"
+
+We can have as many queries as we want in a url, but we will still only use the single ? and each additional query should just be separated by an &.
+// https://www.mywebsite.com"?user=john&color=blue"
+
+
+Middleware
+app.use(express() / cors() / express.json())

@@ -1,0 +1,12 @@
+// convert to array
+let a = 'word';
+
+// Option 1
+a.split('');
+
+// Option 2
+[...a];
+// Option 3
+Array.from(a);
+// Option 4
+Object.assign([], a);
