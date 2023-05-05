@@ -105,7 +105,6 @@ GROUP BY color
 ORDER BY COUNT(*)
 OFFSET 2;
 
-
 LIMIT #-- only show this many rows from the top
 SELECT color, COUNT(*) FROM melons
 GROUP BY color
@@ -149,7 +148,6 @@ CREATE TABLE printings (
     print_date TIMESTAMP
 );
 
-
 MANY TO MANY -- requires adding a third table
 --When you need to store data on many things that can be apart of something else that can also have many itterations. 
 -middle tables include unique info plus relationships
@@ -161,6 +159,23 @@ EXAMPLE: People in facebook groups - There are many different groups with many p
 SOLUTION: third table containing group users
 rows contain relationships only between group_ids & user_ids
 
+CREATE TABLE books (
+    book_id SERIAL PRIMARY KEY,
+    title VARCHAR(50)
+);
+
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    email VARCHAR(50)
+);
+
+CREATE TABLE comments (
+    comment_id SERIAL PRIMARY KEY,
+    book_id INTEGER NOT NULL REFERENCES books(book_id),
+    user_id INTEGER NOT NULL REFERENCES users(user_id),
+    body TEXT
+);
+
 EXAMPLE:TUESDAY LAB - FOODIE APP
 --what info do we need to store?
 users - have info
@@ -169,17 +184,8 @@ ingredients - have info
 occasions - have info
 shopping lists - created for users, with ingredients for recipies or occasions
 
---listing each field to find relationships
-many to many - users to occasion via occasion demographics
-
-Middle Tables:
-users & ingredients = ingredients on hand
-query - can I make recipie? connects users to recipie through ingredients on hand
-occasion is coming up - look at what users celebrate which occasion and pull from recipie labeled as marked for the occasion = label table containing only recipie_id and match occasion
-
 --
 JOIN TABLES
-
 -- for repeating column names, (aka inner join)
 SELECT 
     name, 
@@ -214,17 +220,20 @@ FROM authors a
 DROP tables = delete
 
 --Dependancys
-DOTENV
+DOTENV -- create .env file  run npm install dotenv
+SERVER_PORT=XXXX
+CONNECTOIN_STRING=url
 
 require('dotenv').config()
-access envirnment variables? server port?
-${process.env.server_port}
+app.listen(process.env.SERVER_PORT, () => console.log(`server running on port 
+${process.env.server_port}`)
 
 Sequelize
 --an ORM object relation manager
+npm install sequelize
+npm install pg pg-hstore
 
 const Sequelize = require('sequelize')
-
 const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
     dialect: 'postgres',
     dialectOptions: {
@@ -232,4 +241,10 @@ const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
             rejectUnauthorized: false
         }
     }
+})
+
+--in index.js route with query using SQL command
+app.get('/people', (req, res) => {
+  sequelize.query('select * from people;')
+    .then(dbRes => res.send(dbRes))
 })
