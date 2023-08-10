@@ -1,0 +1,16 @@
+// git log to view commit history
+
+//remove from staging
+git rm filename
+OR
+rm filename
+
+//reverse commit
+
+
+// create directory 'folder'
+mkdir name
+
+// move files
+git mv filename directory
+
