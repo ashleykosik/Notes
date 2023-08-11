@@ -68,12 +68,11 @@ Or the last loaded style if 2 of the exact same are written
 block level elements always start a new line: paragraphs, headers, articles, sections
 Inline elements will not change in css when individually applying height and width 
 
-
 Display: block, inline, inline-block, flex, None = hidden
 display:block;
 display:inline-block ; will follow height and width settings and put the elements side by side and move to the next line 
 
-Height & width
+Height & width - box-sizing
 Default = Box-sizing: Content-box
 box-sizing: border-box (includes border shrinks content)
 
@@ -109,9 +108,6 @@ Padding - can add or subtract space within the element
 Border - added between padding and margin
 Border-width: can also use thin, medium, thick
 Border-style: none, solid, hidden, dotted, dashed, double, groove, ridge, inset, outset
-
-
-
 
 Shorthand: Can be in any order
 border: 2px solid red
