@@ -1,0 +1,121 @@
+
+/* float.html */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4em;
+}
+.containter {
+    max-width: 960px;
+    margin: 30px auto;
+}
+.box {
+    background: #f4f4f4;
+    border: 1px solid #333;
+    padding: 20px;
+    margin-bottom: 15px
+}
+/* two boxes next to each other with space between */
+#box-2 {
+    float: left;
+    width: 68%;
+}
+#box-3 {
+    float: right;
+    width: 30%
+}
+/* box 4 will be behind box 2 & 3 without an element to clear the floats */
+.clr {
+    clear: both;
+}
+
+
+/* buttons.html */
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color:red;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:active {
+    color: #f4f4f4;
+}
+
+.btn {
+    background: #4c6ca0;
+    color: white;
+    border:none;
+    font-size:16px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: #f4f4f4;
+    background: #446190;
+}
+
+
+/* menu.html */
+.navbar {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    background:#4c6ca0;
+    border-radius:5px;
+    overflow:auto;
+}
+/* floats remove background so overflow is ennabled above */
+.navbar li {
+    float: left;
+}
+.navbar li a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+.navbar li a:hover {
+    background-color: #446190;
+    color: #f4f4f4;
+    
+}
+.side-menu {
+    list-style: none;
+    border: 1px #ddd solid;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px
+}
+
+.side-menu li {
+    font-size: 18px;
+    line-height: 2.4em;
+    border-bottom: dotted 1 #ddd;
+}
+.side-menu li:last-child {
+    border:none;
+}
+.side-menu li a {
+    color:#333;
+    text-decoration: none;
+}
+.side-menu li a:hover {
+    color: coral;
+}
+
+h1 {
+    font-size: 5rem;
+}
+

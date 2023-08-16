@@ -1,0 +1,48 @@
+
+    animation-name: any;
+    animation-duration: #s;
+    animation-iteration-count: infinite or #;
+    animation-fill-mode: forwards, backwards, both;
+    animation-delay: 2s;
+    animation-direction: normal, reverse, alternate(forward then backward), alternate-reverse(backward then forward);
+    animation-timing-function: ease-in, ease-out, ease-in-out, linear, steps(n, #);
+    animation-play-state: running or paused;
+
+SHORTHAND:
+animation: name, duration, fill-mode, timing-function
+
+@keyframes animate1 {
+    from {
+        width: 200px;
+        top: 0;
+    }
+    to {
+        width: 600px;
+        background-color: red;
+        top: 300px
+    }
+}
+
+transition-property: all or any;
+EXAMPLE:
+.box {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    transition-property: background or all; (includes transform)
+    transition-duration: 2s;
+}
+
+.box:hover {
+    background-color: red;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px
+}
+
+transform: 
+    matrix(1,2,3,4,5,6)
+    translate(##px, ##%) translateY() translateX() (##px = goes up OR -##px = goes down)
+    scale(2) = multiply to make larger
+    rotate(##deg)
+    skew(##deg, ##deg) = diagonal lines

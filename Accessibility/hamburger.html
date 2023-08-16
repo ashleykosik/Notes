@@ -1,0 +1,26 @@
+
+
+<!-- label will be read as well as the span -->
+<header class="main">
+    <nav id="primary-nav" aria-label="main">
+        <button id="hamburger" aria-expanded="false" aria-label="menu">
+            <span>Menu</span>
+            <img src="#">
+        </button>
+    </nav>
+</header>
+
+<!-- placeholders are not recommended -->
+<label for="name">Your Name (Required) </label>
+<input type="text" class="form-control" id="name" aria-required="true">
+
+<label for="message">Message<span aria-hidden="true">*</span></label>
+<textarea class="form-control" id="message" required></textarea>
+
+
+<!--  -->
+<div hidden id="new_window">
+    opens in new window
+</div>
+
+<a href="#" aria-describedby="new_window" target="_blank">Web Designer Bio<img src="#" aria-hidden="true"></a>

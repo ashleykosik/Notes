@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- this makes the page responsive to size -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- this shows up in browser search -->
+        <title>My Website</title>
+        <meta name="description" content="This is my website description">
+
+        <meta name="keywords" content="web development, web design">
+
+        <!-- this line removes your page from google search -->
+        <meta name="robots" content="NOINDEX, NOFOLLOW">
+        
+
+    </head>
+    <body>
+        <!--Only 1 h1 per page for SEO-->
+        <h1>My Website</h1>
+
+        <p>This is my very first website</p>
+
+        <!-- dont use any tags for styling -->
+        <strong>strong meaning</strong>
+        <em>emphasis</em>
+        <del>deleted text</del>
+
+        <!-- regular links change the page you are on -->
+        <a href="url">text</a>
+
+        <!-- target opens link in a new page -->
+        <a href="url" target="_blank">text</a>
+
+        <img src="" alt="text"> 
+
+      <!--tables--> 
+      <table>
+        <thead>
+            <th>colum headings each listed here</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>row text</td>
+            </tr>
+        </tbody>
+      </table>
+
+      <!-- forms -->
+      <form action="">
+        <div>
+            <!-- the label for="XX" should match the input id for cohesive page navigation -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="enter an email">
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" cols="50" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="dropdown">Dropdown</label>
+            <select name="dropname" id="dropname">
+                <option value="one">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+            </select>
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+        </div>
+        <div>
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date">
+        </div>
+        <!-- choose only one -->
+        <div>
+            <label for="membership">Membership</label>
+            <input type="radio" name="membership" value="simple" id="membership">Simple
+            <input type="radio" name="membership" value="standard" id="membership" checke>Standard
+            <input type="radio" name="membership" value="super" id="membership">Super
+        </div>
+        <!-- can choose multiple -->
+        <div>
+            <label for="likes"> I Like ...</label>
+            <input type="checkbox" name="likes" value="bike" id="likes">Bike
+            <input type="checkbox" name="likes" value="car" id="likes">Car
+            <input type="checkbox" name="likes" value="boat" id="likes">Boat
+        </div>
+        <!-- input submit -->
+        <input type="submit" value="submit">
+        <!-- button submit -->
+        <button type="submit">Submit</button>
+
+        <!-- clear all typed info on page -->
+        <button type="reset">Reset</button>
+      </form>
+
+      <header></header>
+
+      <nav></nav>
+
+      <main></main>
+
+      <section></section>
+
+      <article></article>
+
+      <aside></aside>
+
+      <footer></footer>
+    </body>
+
+
+</html>

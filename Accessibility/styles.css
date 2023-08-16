@@ -1,0 +1,36 @@
+
+
+/* set a high contrast outline = keyboard controls / tabs & arrows */
+*:focus {
+    outline:4px solid black
+}
+
+.btn:hover, .btn:focus {
+
+}
+
+.skip {
+    position: absolute;
+    left: 10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow:hidden;
+    font-size: 2em;
+    background-color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px
+}
+
+.skip a:focus {
+    position: static;
+    width: auto;
+    height: auto;
+
+}
+
+a[aria-current="page"] {
+    font-weight: bold;
+    border-bottom: 1 px solid black;
+}
