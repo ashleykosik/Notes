@@ -1,0 +1,121 @@
+link to html
+<link rel="stylesheet" href="css/style.csss">
+
+display: block, inline, inline-block - allows width & box-sizing to put items next to each other with backgrounds
+
+backgrounds
+borders:
+box-shadow: x(bottom) y(right) (blur)px (spread)px color(can include opacity)
+box-shadow; -x(top) -y(left), can add multiple shadows
+
+
+images
+
+font / text & color properties:
+text-align: left, right, center, justify
+font-size: use rem units so it responds to device settings
+text-shadow: horizontal vertical blur color
+
+padding & margin shorthand
+container
+
+
+
+to center content add this to container
+max-width: px 
+margin: auto
+
+Media Queries
+max-width: applies to screens this size and below
+min-width: applies to screens this size and larger
+
+
+Flexbox
+Containers:
+display:flex;
+flex-direction:
+flex-wrap:
+Main Axis:
+justify-content: space-between, space-around, flex-start, flex-end, center
+align-items: center, stretch
+
+Items:
+set background, border, margin, padding, text, and width ONLY if you want fixed width
+
+flex-shrink: default(will shrink), 0(will not shrink)
+flex-grow: 1 (will space evenly with all others)
+flex-grow: 2 (will be twice as large as any flex-grow: 1 items as space allows)
+can also
+flex: 1 0 200px (grow, shrink, basis=width)
+align-self: flex-start, flex-end (controlled float) single items can be moved around in a container
+
+
+
+Grid:
+    display: grid;
+    grid-template-columns: 200px, auto #fr = 1fr 2fr etc, repeat(3, ##)
+    grid-template-rows:
+    grid-auto-rows: #fr;
+    grid-gap: 1 rem;
+    grid-template-columns: repeat(auto-fit, minmax(min#, max#))
+
+    individual item (3 wide by 2){
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 3:
+
+        SHORTHAND:
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 2
+    }
+
+
+
+
+Reusable variables:
+:root {
+    --primary-color: ######
+    --secondary-color: ######
+    --light-color: ######
+    --max-width: ##px
+}
+to use:
+element {
+    color: var(--primary-color);
+    max-width: var(--max-width)
+}
+
+
+Selectors
+
+adding content
+.class:after {
+    content: '*';
+    color: red;
+    padding-left: 2px
+}
+
+nested selector = parent then type 
+#welcome p {
+    font-size: 10px;
+}
+
+direct child elements only
+div > p {
+}
+
+directly after element tag closes aka sibling element
+div + p {
+}
+
+element attributes
+a[target]
+input[type='text'],
+input[type="email"]
+
+li:first-child,
+li:last-child,
+li:nth-child(#) = targets single items
+li:nth-child(#n + #) 2n = every other item + offset aka start at
+li:nth-child(even) OR (odd)
