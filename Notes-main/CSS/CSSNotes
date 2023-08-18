@@ -1,0 +1,207 @@
+The purpose of CSS (Cascading Style Sheets) is to take html and make it look the way you want. 
+
+CSS can be added: 
+link method with a .css file, this way is recommended to keep it separate from html
+<head>
+<link rel=”stylesheet” href=”css/styles.css”>
+<style @import url(“css/styles.css”); </style>
+</head>
+-import smaller files into a single css or .sass file, can be slow if used on a html page
+@import url(‘/styles/buttons.css’);
+@import url(‘/styles/layout.css’);
+@import url(‘/styles/typography.css’);
+
+
+-inline method using /*<style></style>*/ should be used sparingly as it is hard to manage, can create conflict with existing css files, and would have to be applied to each element separately 
+<p style=”color:red;”>red paragraph<p>
+<p style=”color:red;font-size:12px;background:#111111;”paragraph</p>
+<p style=”text-transform:uppercase;color:blue;”>paragraph</p>
+
+-internal method, would have to be copied to each page of a website to match
+<head>
+	<style>
+	H1 {
+	Color: green;
+    }
+	H2 {
+	Color: blue;
+	}
+	</style>
+</head>
+
+/******/
+* Reset CSS files = remove default styling so that your styles are consistent across browsers
+* You must link them before any other stylesheets so that they don't cancel out your styles
+* https://meyerweb.com/eric/tools/css/reset/
+/******/
+
+
+Selectors:
+.class
+#id
+/*comments*/
+
+:root {
+    --primary-color:
+    --secondary-color:
+    --border: 
+}
+use with: var(--primary-color);
+
+Heriarchy: Inline style > ID > class > attribute tag
+Browser will follow choosing the most specific 
+4- *(universal)
+3- P (type)
+2- .example (class)
+1- #example (id)
+Or the last loaded style if 2 of the exact same are written
+
+<section>
+    <p> x</p>
+    <a href=”x”>xx</a>
+</section>
+    *section = applies to all sections
+    *section p = applies to all paragraphs in section
+    *section p a = applies to all paragraphs and links in section
+
+/*****/ The Box Model /*****/
+block level elements always start a new line: paragraphs, headers, articles, sections
+Inline elements will not change in css when individually applying height and width 
+
+Display: block, inline, inline-block, flex, None = hidden
+display:block;
+display:inline-block ; will follow height and width settings and put the elements side by side and move to the next line 
+
+Height & width - box-sizing
+Default = Box-sizing: Content-box
+box-sizing: border-box (includes border shrinks content)
+
+/*****/
+Position: Default = static
+Static, relative, fixed, absolute, sticky
+Z-index: put something on top of something else
+
+Position:relative
+Top:
+Left:
+
+Relative - move relative to old position / side of page
+Absolute - relative to its coded ancestor, that must be positioned relative, defaults to viewport
+Fixed - stays on page as your scroll
+Sticky - becomes fixed as you scroll past it
+
+/*****/    
+Longhand:
+Padding-top: 10px;
+Padding-right: 5px;
+Padding-bottom: 10px;
+Padding-left: 5px;
+
+Shorthand: top & bottom, left & right
+Padding: 10px 5px;
+OR top right bottom left
+Padding: 10px 5px 10px 5px;
+/*****/
+
+Padding - can add or subtract space within the element
+
+Border - added between padding and margin
+Border-width: can also use thin, medium, thick
+Border-style: none, solid, hidden, dotted, dashed, double, groove, ridge, inset, outset
+
+Shorthand: Can be in any order
+border: 2px solid red
+OR border: solid red 2px
+
+/*****/
+Margin - can add or remove space around the element
+Margin: 0 auto; - center on page
+Margin collapsing is how the bottom margin of one block level element will always overlap the bottom of a second block level element
+To remove that margin:
+.first {
+Margin-bottom: 0;
+}
+.second {
+Margin-top: 0;
+
+}
+.margin {
+Margin-left: -4px;
+}
+^when two elements in html are written on different lines removing the margin can still leave a small space, rather than clutter up the html you can target one of the elements and move it over
+/*****/
+
+
+/*****/ Colors: /*****/
+Includes keywords, #color value and rgb(XXX,XXX,XXX)
+#color value = hex value/hexadecimal 
+#000000 = black
+#ffffff = white
+#808080=grey
+#ffa500=orange
+
+Short Hand vs Long hand
+#rgb - #rrggbb
+#f00; - #ff0000
+#000; - #000000
+
+rgb(XXX,XXX,XXX)
+Can use numbers or percents between 0-255 or 0%-100%
+Black = (0,0,0) or (0%,0%,0%)
+White = (255,255,255) or (100%,100%,100%)
+Alpha channel adds opacity
+Black no opacity = (0,0,0,0)
+50% opacity =(0,0,0,.5;)
+100% opacity = (0,0,0,1)
+
+Hsl - defines a color by is hue, saturation, lightness, and optional alpha
+(0, 100%, 50%, 0)
+Hue = angle within the color wheel relative to red
+red=0 and 360
+Green =120
+Blue =240deg (unit optional)
+
+Saturation = 100% full saturation, 0% is a shade of grey
+Lightness=100% is white, 0% is black, 50% is normal
+
+
+/*****/ Text /*****/
+Fonts: List in order of preferred fonts to generic
+Font-family: Helvetica, Arial, sans-serif;
+
+box-shadow: XXpx XXpx color;
+The first value is the horizontal offset (bottom).
+the second value is the vertical offset (side). 
+The shadow color will be inherited from the text color or can be assigned.
+
+/*****/ Shapes /*****/
+circles -  border-radius: 50%;
+
+
+Links:
+<a href="example.com">Link Here</a>
+
+In page link:
+<a href=”#example”>links to a spot on the page</a>
+<section id=”example”>link goes here</section>
+#example {x}
+
+Floats
+/* two boxes next to each other with space between */
+#box-2 {
+    float: left;
+    width: 68%;
+}
+#box-3 {
+    float: right;
+    width: 30%
+}
+/* box 4 will be behind box 2 & 3 without an element to clear the floats */
+.clr {
+    clear: both;
+}
+
+
+Flex: default is row
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+Flex parent is the container

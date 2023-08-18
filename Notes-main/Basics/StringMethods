@@ -1,0 +1,50 @@
+// Convert into a string 
+//
+// method = String(variable) && .toString()
+let boo = false
+console.log(String(`That is ` + boo)) //  result = `that is false`
+
+//OR add ''
+let three = 3 + '' // result = ‘3’
+console.log(three)
+
+
+// removes space before and after 
+console.log(lb.trim())
+
+// .toLowerCase()
+console.log(lb.toLowerCase())
+
+// .toUpperCase
+console.log(lb.toUpperCase())
+
+// to Capatalize 
+const ab = 'goBlin'
+console.log(ab.at(0).toUpperCase() + ab.substring(1, ab.length).toLowerCase())
+// OR  ab[0] + ab.substring(1)
+
+
+// .replace()
+const p = 'The quick brown fox jumps over the lazy dog. The lazy dog is hungry';
+console.log(p.replace('dog', 'monkey')); // only affects first instance
+console.log(p.replaceAll('dog', 'monkey'))
+
+
+// .split() -empty splits every character, 
+// the argument separates and removes itself 
+let a = 'The lazy dog is hungry';
+console.log(a.split())
+console.log(a.split(' '))
+let b = a.split('y')
+console.log(b)
+
+
+//.join() - joins an array into a string
+
+
+/*String methods
+.includes()
+.startsWith()
+.endsWith()
+-returns true or false
+*/
