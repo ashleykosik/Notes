@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+ 
+}
+
+body {
+    background-color: #FFF5E0
+}
+
+a {
+    text-decoration: none;
+    color:black;
+
+}
+header {
+    background-color: white;
+    
+}
+
+main {
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+nav {
+    margin: 0;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 5vw;
+    color: black;
+}
+
+.user {
+    border-radius: 50%;
+    padding: 1vw;
+    font-size: 3vw;
+ 
+}
+
+#your {
+    color:#E85C29;
+}
+
+#menu. {
+    color:#3B3A3A
+}
+
+h1 {
+    font-size: 3.5vw;
+
+    text-align: center;
+    font-weight: 100;
+
+}
+
+h3 {
+
+}
+
+.orange-btn {
+    display: block;
+    background-color: #E85C29;
+    color: white;
+    font-size: 1.2vw;
+    font-weight: bold;
+    border-radius: 100px;
+    border: none;
+    padding: 10px;
+    max-width: 90%;
+    margin: auto;
+
+}
+.back-btn {
+    color:#E85C29;
+    border: black 3px solid;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0px .5vw;
+    font-weight: bold;
+    font-size: 2vw;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 2.5vw;
+}
+
+h3 {
+    font-size: 2vw;
+}
+
+
+.title, .grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    margin: 2vw;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.grid {
+    
+    gap: 10px;
+
+}
+
+.meal {
+    border:#3B3A3A 1px solid;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: white
+}
+
+.date {
+   display: flex;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+
+}
+
+.profile {
+    padding: 5px .5vw;
+
+}
+
+.profile h2 {
+    padding: 15px 0 10px 0;
+    margin: 10px 20px 0 20px
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+}
+
+.profile-grid h1 {
+    margin-left: 25px;
+    text-align: left;
+}
+
+.meal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 10px;
+    margin: 10px 2vw;
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+ol {
+    background-color: white;
+    padding-top: 1vw;
+}
+
+
+
+.meal-grid h3 {
+    background-color: tan;
+    padding: 5px;
+
+}
+
+.ingredients {
+    display: block;
+    padding: 2px;
+    line-height: 1.5;
+    align-items: left;
+}
+.vertical {
+   justify-content: center;
+   padding: 3px;
+   width: 65%;
+   margin: 0;
+   background-color: grey;
+   color:white;
+   border: none
+}
+
+ul {
+    padding: 0;
+    margin:auto;
+    width: 100%;
+   
+}
+
+.text {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.text li {
+    display: list-item;
+    list-style-type: decimal;
+    margin-left: 3vw
+}
+
+.meal-grid ul {
+
+    box-sizing: content-box;
+}
+
+.center {
+    text-align: center;
+}
+
+.new-line {
+    border-bottom: #3B3A3A dotted 1px;
+    margin: 0 20px
+}
+
+#breakfast-profile {
+    margin: 0 20px 0 20px;
+}
+
+#return {
+    display: inline;
+    font-weight: 100;
+
+}
+
+
+
+@media(min-width: 1400px){
+    li, p {
+    font-size: 1.25vw;
+}
+}
+
+@media(min-width: 1399px) {
+    li, p {
+        font-size: 1.25vw;
+    }
+}
+@media(max-width: 1000px) {
+    h2, #return {
+        font-size: 3vw;
+    }
+
+}
+
+@media(max-width: 550px){
+    .bullet {
+        display: list-item;
+        list-style-type: disc;
+    }
+}
+@media(max-width: 549px){
+    p, h3 {
+        font-size: 3vw;
+    }
+    h2 {
+        padding: 0px;
+        
+    }
+
+    h1 {
+        font-size: 5vw;
+        padding: 0;
+    }
+
+    .hidden {
+        display: hidden;
+        background: none;
+        color: #FFF5E0;
+    }
+
+    .mobile {
+        padding: 4px;
+        font-size: 3vw;
+    }
+
+    
+}
+
+@media(min-width: 550px) {
+    .mobile {
+        display: none;
+    }
+}
+
+@media(max-width: 515px) {
+    .bullet {
+        display: list-item;
+        list-style-type: disc;
+        list-style-position: inside;
+        text-align: left;
+        font-size: 4vw;
+        margin: 0
+    
+        
+    }
+   .bullet::marker {
+        margin: none;
+        padding: 0;
+    }
+}
